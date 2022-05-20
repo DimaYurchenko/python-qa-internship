@@ -24,11 +24,14 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-      - name: Run checks
-        run: |
-         chmod +x ./test.sh && ./test.sh
 
       - name: Install requirements
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+
+      - name: Run checks
+        run: |
+          chmod +x ./test.sh && ./test.sh
+
+      
