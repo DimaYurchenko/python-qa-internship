@@ -1,1 +1,2 @@
+Faker==8.2.0
 phonenumbers==8.12.48
