@@ -1,11 +1,22 @@
+import sys
 from contact_list.view.console import *
 from contact_list.models.ContactList import ContactList
+from contact_list.serializers.JSON import serialize, deserialize
+from pathlib import Path
+import atexit
 
 
 class App(object):
 
     def __init__(self):
+
+        current_dir = Path(__file__)
+        project_dir = [p for p in current_dir.parents if p.parts[-1] == 'python-qa-internship'][0]
+        storage_file_path = os.path.join(project_dir, 'storage', 'contacts.json')
+
         self.contacts = ContactList()
+        self.contacts.set_contacts(deserialize(storage_file_path))
+        atexit.register(serialize, self.contacts.get_all(), storage_file_path)
         self.is_running = False
 
     def run(self):
@@ -29,3 +40,4 @@ class App(object):
 
             elif action == Choice.EXIT:
                 self.is_running = False
+                sys.exit()
