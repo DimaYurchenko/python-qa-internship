@@ -1,5 +1,5 @@
 from typing import List
-from . import Contact
+from contact_list.models.Contact import Contact
 
 
 class ContactList(object):

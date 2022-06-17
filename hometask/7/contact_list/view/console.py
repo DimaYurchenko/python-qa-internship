@@ -1,8 +1,8 @@
 from typing import List
 from enum import Enum
 import os
-from ..validation import valid_phone_number, valid_email, valid_name
-from ..models import Contact
+from contact_list.validation.validators import valid_phone_number, valid_email, valid_name
+from contact_list.models.Contact import Contact
 from tabulate import tabulate
 
 
