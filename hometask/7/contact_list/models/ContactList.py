@@ -28,3 +28,6 @@ class ContactList(object):
 
     def get_all(self) -> List[Contact]:
         return sorted(self.__contacts, key=lambda x: x.name)
+
+    def set_contacts(self, contacts: List[Contact]):
+        self.__contacts = contacts.copy()
