@@ -1,5 +1,5 @@
 from typing import List
-from . import Contact
+from contact_list.models.Contact import Contact
 
 
 class ContactList(object):
@@ -27,4 +27,8 @@ class ContactList(object):
         self.__contacts = list(filter(lambda c: c.name != name, self.__contacts))
 
     def get_all(self) -> List[Contact]:
-        return sorted(self.__contacts, key=lambda x: x.name)
+        self.__contacts.sort(key=lambda x: x.name)
+        return self.__contacts
+
+    def set_contacts(self, contacts: List[Contact]):
+        self.__contacts = contacts.copy()
